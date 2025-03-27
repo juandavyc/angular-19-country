@@ -1,0 +1,36 @@
+<nav class="navbar bg-base-200 shadow-sm">
+  <div class="flex-1">
+    <h1 class="text-xl">Juandavyc</h1>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <li>
+        <a [routerLink]="['/']"
+          routerLinkActive="bg-accent"
+          [routerLinkActiveOptions]="{exact:true}"
+          >Home</a>
+      </li>
+      <li>
+        <details routerLinkActive="bg-accent rounded">
+
+          <summary>Countries</summary>
+          <ul class="p-2 w-[120px]">
+            <li>
+              <a [routerLink]="['/country/by-capital']"
+               routerLinkActive="bg-success">By capital</a>
+            </li>
+            <li>
+              <a [routerLink]="['/country/by-country']"
+                routerLinkActive="bg-success">By country</a>
+            </li>
+            <li>
+              <a [routerLink]="['/country/by-region']"
+                routerLinkActive="bg-success">By region</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+      <li><a>Contact</a></li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,47 @@
+<table class="table table-zebra">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>icon</th>
+      <th>flag</th>
+      <th>name</th>
+      <th>capital</th>
+      <th>population</th>
+      <th>options</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    @if (isLoading()) {
+      <tr colspan="7">Loading...Please wait a moment</tr>
+    }
+    @else if (errorMessage()) {
+      <tr colspan="7">{{errorMessage()}}</tr>
+    }
+    @else{
+      @for (country of countries(); track country.cca2; let index = $index ) {
+        <tr>
+          <td>{{index}}</td>
+          <td>{{country.icon}}</td>
+          <td>
+            <img [src]="country.flag" [alt]="country.name" class="w-10">
+          </td>
+          <td>
+            <strong>{{country.name}}</strong>
+          </td>
+          <td>{{country.capital}}</td>
+          <td>
+            <div class="text-right">
+              <span class="badge badge-soft badge-secondary">{{country.population | number}}</span>
+            </div>
+          </td>
+          <td>
+            <a [routerLink]="['/country/by',country.cca2]" class="link-primary">More information</a>
+          </td>
+        </tr>
+      }@empty {
+        <tr colspan="7">Sin resultados</tr>
+      }
+    }
+  </tbody>
+</table>

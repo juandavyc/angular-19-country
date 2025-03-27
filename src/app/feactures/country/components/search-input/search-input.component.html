@@ -1,0 +1,7 @@
+<div class="flex flex-row gap-2">
+  <label class="input">
+    <span class="label">capital</span>
+    <input type="text" [placeholder]="placeholder()" (keyup.enter)="emmitValue(txtSearch.value)" [value]="inputValue()" #txtSearch>
+  </label>
+  <button class="btn btn-accent" (click)="emmitValue(txtSearch.value)">search</button>
+</div>

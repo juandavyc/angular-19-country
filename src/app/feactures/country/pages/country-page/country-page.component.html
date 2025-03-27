@@ -1,0 +1,63 @@
+<section class="my-10">
+  @if (countryResource.error()) {
+    <div class="flex flex-col justify-center">
+        <h1>Error</h1>
+        <p>{{countryResource.error()}}</p>
+    </div>
+  }
+  @else if (countryResource.isLoading()) {
+    <div class="flex justify-center ">
+        <p>Cargando</p>
+    </div>
+  }
+  @else{
+    @let country = countryResource.value();
+      @if(country){
+        <div class="container mx-auto p-5">
+
+          <div class="card bg-base-200 shadow-md p-6 flex flex-col md:flex-row items-center gap-6">
+
+            <div class="flex flex-col items-start">
+              <h1 class="text-4xl font-bold">{{ country.name }}</h1>
+              <h2 class="text-xl font-light">Población: {{ country.population | number }}</h2>
+            </div>
+            <div class="w-32 h-20">
+              <img [alt]="country.name" [src]="country.flag" class="w-full h-full object-cover rounded-md border" />
+            </div>
+          </div>
+
+
+          <div class="stats shadow-lg mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="stat">
+              <div class="stat-title">Población</div>
+              <div class="stat-value">{{ country.population | number }}</div>
+              <div class="stat-desc">¿Cuánta gente no?</div>
+            </div>
+            <div class="stat">
+              <div class="stat-title">Nombre</div>
+              <div class="stat-value">{{ country.name }}</div>
+            </div>
+            <div class="stat">
+              <div class="stat-title">Bandera</div>
+              <div class="stat-value">{{ country.flag }}</div>
+            </div>
+          </div>
+
+          <section class="diff aspect-[16/9] mt-8 rounded-lg overflow-hidden shadow-md">
+            <div class="diff-item-1">
+              <img [alt]="country.name" [src]="country.flag" class="w-full h-full object-cover" />
+            </div>
+            <div class="diff-item-2">
+              <img class="blur brightness-75 w-full h-full object-cover" [alt]="country.name" [src]="country.flag" />
+            </div>
+            <div class="diff-resizer"></div>
+          </section>
+        </div>
+
+      }
+  }
+
+
+
+
+</section>

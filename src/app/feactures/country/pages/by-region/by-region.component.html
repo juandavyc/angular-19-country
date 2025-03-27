@@ -1,0 +1,24 @@
+<section class="flex flex-row gap-2 my-10">
+
+  <div class="flex flex-col gap-2 m-4">
+    <div>
+      <label class="select">
+        <span class="label">region</span>
+        <select (change)="query.set(selectRegion.value)" #selectRegion>
+          <option value="">Select Option</option>
+          @for (region of regions().sort(); track $index) {
+            <option [value]="region">{{region | titlecase}}</option>
+          }
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <table-list
+        [countries]="countryResource.value() ?? []"
+        [isLoading]="countryResource.isLoading()"
+        [errorMessage]="countryResource.error()"/>
+    </div>
+  </div>
+
+</section>

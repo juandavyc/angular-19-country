@@ -1,0 +1,6 @@
+:host {
+  display: block;
+}
+.hero{
+  background-image: url(/images/alien.jpg);
+}
