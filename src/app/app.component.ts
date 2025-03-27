@@ -20,10 +20,5 @@ export class AppComponent {
 
   title = 'country-app';
 
-  private themeService = inject(ThemeService);
-
-  changeTheme(theme: string) {
-    this.themeService.setTheme(theme);
-  }
 
 }

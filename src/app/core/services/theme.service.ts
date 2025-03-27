@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { effect, inject, Injectable, signal } from '@angular/core';
+import { effect, inject, Injectable, linkedSignal, signal } from '@angular/core';
 
 const THEMES = ["light", "dark"];
 
@@ -10,6 +10,7 @@ export class ThemeService {
 
   private readonly document = inject(DOCUMENT);
 
+  //
   private currentTheme = signal<string>('light');
 
   constructor() {
@@ -24,11 +25,15 @@ export class ThemeService {
     })
   }
 
-  public setTheme(theme: string): void {
+  public toggleTheme(theme: boolean): void {
+    this.setTheme(theme ? 'light' : 'dark')
+  }
+
+  private setTheme(theme: string): void {
     this.currentTheme.set(theme);
   }
 
-  public get Theme(){
+  public get Theme() {
     return this.currentTheme();
   }
 

@@ -5,47 +5,24 @@
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1 gap-3">
       @for (navbarRoute of navbarRoutes; track $index) {
-        <li>
-          @if(navbarRoute.title == 'Home'){
-            <a [routerLink]="[navbarRoute.path]"
-            routerLinkActive="bg-accent"
-            [routerLinkActiveOptions]="{ exact: true }">{{navbarRoute.title}}</a>
-          }
-          @else{
-            <a [routerLink]="[navbarRoute.path]"
-            routerLinkActive="bg-accent">{{navbarRoute.title}}</a>
-          }
-        </li>
+      <li>
+        @if(navbarRoute.title == 'Home'){
+        <a [routerLink]="[navbarRoute.path]" routerLinkActive="bg-accent"
+          [routerLinkActiveOptions]="{ exact: true }">{{navbarRoute.title}}</a>
+        }
+        @else{
+        <a [routerLink]="[navbarRoute.path]" routerLinkActive="bg-accent">{{navbarRoute.title}}</a>
+        }
+      </li>
       }
-      <!-- <li>
-        <a [routerLink]="['/']"
-          routerLinkActive="bg-accent"
-          [routerLinkActiveOptions]="{exact:true}">Home</a>
-      </li>
       <li>
-        <details routerLinkActive="bg-accent rounded">
-
-          <summary>Countries</summary>
-          <ul class="p-2 w-[120px]">
-            <li>
-              <a [routerLink]="['/country/by-capital']"
-               routerLinkActive="bg-success">By capital</a>
-            </li>
-            <li>
-              <a [routerLink]="['/country/by-country']"
-                routerLinkActive="bg-success">By country</a>
-            </li>
-            <li>
-              <a [routerLink]="['/country/by-region']"
-                routerLinkActive="bg-success">By region</a>
-            </li>
-          </ul>
-        </details>
+        <input
+          type="checkbox"
+          class="toggle theme-controller my-auto"
+          [checked]="currentTheme() == true"
+          (change)="toggleTheme(checkboxTheme.checked)"
+          #checkboxTheme>
       </li>
-      <li>
-        <a [routerLink]="['/contact']"
-          routerLinkActive="bg-accent">Contact</a>
-      </li> -->
     </ul>
   </div>
 </nav>
