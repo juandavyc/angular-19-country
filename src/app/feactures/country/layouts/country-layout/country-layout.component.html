@@ -1,0 +1,14 @@
+<div class="flex justify-center">
+  <ul class="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box mt-2">
+    <li>
+      <a [routerLink]="['/country/by-capital']" routerLinkActive="bg-accent">By capital</a>
+    </li>
+    <li>
+      <a [routerLink]="['/country/by-country']" routerLinkActive="bg-accent">By country</a>
+    </li>
+    <li>
+      <a [routerLink]="['/country/by-region']" routerLinkActive="bg-accent">By region</a>
+    </li>
+  </ul>
+</div>
+<router-outlet/>

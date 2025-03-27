@@ -22,7 +22,6 @@ export class AppComponent {
 
   private themeService = inject(ThemeService);
 
-
   changeTheme(theme: string) {
     this.themeService.setTheme(theme);
   }

@@ -3,12 +3,24 @@
     <h1 class="text-xl">Juandavyc</h1>
   </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
-      <li>
+    <ul class="menu menu-horizontal px-1 gap-3">
+      @for (navbarRoute of navbarRoutes; track $index) {
+        <li>
+          @if(navbarRoute.title == 'Home'){
+            <a [routerLink]="[navbarRoute.path]"
+            routerLinkActive="bg-accent"
+            [routerLinkActiveOptions]="{ exact: true }">{{navbarRoute.title}}</a>
+          }
+          @else{
+            <a [routerLink]="[navbarRoute.path]"
+            routerLinkActive="bg-accent">{{navbarRoute.title}}</a>
+          }
+        </li>
+      }
+      <!-- <li>
         <a [routerLink]="['/']"
           routerLinkActive="bg-accent"
-          [routerLinkActiveOptions]="{exact:true}"
-          >Home</a>
+          [routerLinkActiveOptions]="{exact:true}">Home</a>
       </li>
       <li>
         <details routerLinkActive="bg-accent rounded">
@@ -30,7 +42,10 @@
           </ul>
         </details>
       </li>
-      <li><a>Contact</a></li>
+      <li>
+        <a [routerLink]="['/contact']"
+          routerLinkActive="bg-accent">Contact</a>
+      </li> -->
     </ul>
   </div>
 </nav>
